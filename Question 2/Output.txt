@@ -1,0 +1,70 @@
+NOTE: this is the complete output you will get when executing commands.sh it has all commands
+
+==========================================
+1. Project Workspace Setup
+==========================================
+drwxr-xr-x 2 hasnain hasnain 4096 Jan  2 12:43 documents
+
+==========================================
+2. File Creation
+==========================================
+-rw-r--r-- 1 hasnain hasnain 0 Jan  2 12:43 plan.txt
+
+==========================================
+3. Content Addition
+==========================================
+Project Plan - Phase 1
+Task 1: Setup development environment
+Task 2: Review project requirements
+Task 3: Create initial documentation
+Deadline: End of Sprint 1
+
+==========================================
+4. File Metadata Verification
+==========================================
+-rw-r--r-- 1 hasnain hasnain 160 Jan  2 12:43 plan.txt
+
+==========================================
+5. File Duplication
+==========================================
+total 8
+-rw-r--r-- 1 hasnain hasnain 160 Jan  2 12:43 plan.txt
+-rw-r--r-- 1 hasnain hasnain 160 Jan  2 12:43 plan_copy.txt
+
+==========================================
+6. Directory Renaming
+==========================================
+drwxr-xr-x 2 hasnain hasnain 4096 Jan  2 12:43 project_documents
+
+==========================================
+7. Archival Structure
+==========================================
+drwxr-xr-x 2 hasnain hasnain 4096 Jan  2 12:43 archive
+
+==========================================
+8. File Organization
+==========================================
+total 4
+-rw-r--r-- 1 hasnain hasnain 160 Jan  2 12:43 plan_copy.txt
+
+==========================================
+9. Recursive Listing
+==========================================
+.:
+archive  plan.txt
+
+./archive:
+plan_copy.txt
+
+==========================================
+10. Path Verification
+==========================================
+/home/hasnain/project_documents/archive/plan_copy.txt
+
+==========================================
+Final Directory Structure:
+==========================================
+project_documents
+project_documents/archive
+project_documents/archive/plan_copy.txt
+project_documents/plan.txt

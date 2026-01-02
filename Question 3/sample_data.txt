@@ -1,0 +1,3 @@
+This is sample data for understanding Linux links and disk usage.
+It contains multiple lines of text.
+We will use this file to demonstrate hard and soft links.

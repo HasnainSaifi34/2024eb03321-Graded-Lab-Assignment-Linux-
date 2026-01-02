@@ -1,0 +1,220 @@
+# when i executed commands.sh with all the commands this is output of those commands
+==========================================
+1. File Creation
+==========================================
+This is sample data for understanding Linux links and disk usage.
+It contains multiple lines of text.
+We will use this file to demonstrate hard and soft links.
+
+==========================================
+2. Hard Link Creation
+==========================================
+ln: failed to create hard link 'sample_hard.txt': File exists
+Hard link created: sample_hard.txt
+-rw-r--r-- 2 hasnain hasnain 160 Jan  2 13:40 sample_data.txt
+-rw-r--r-- 2 hasnain hasnain 160 Jan  2 13:40 sample_hard.txt
+
+==========================================
+3. Symbolic Link Creation
+==========================================
+Symbolic link created: sample_soft.txt
+-rw-r--r-- 2 hasnain hasnain 160 Jan  2 13:40 sample_data.txt
+-rw-r--r-- 2 hasnain hasnain 160 Jan  2 13:40 sample_hard.txt
+lrwxrwxrwx 1 hasnain hasnain  15 Jan  2 13:40 sample_soft.txt -> sample_data.txt
+
+==========================================
+4. Inode Verification
+==========================================
+49254 sample_data.txt  49254 sample_hard.txt  49305 sample_soft.txt
+
+==========================================
+5. Inode Analysis
+==========================================
+Displaying detailed inode information:
+  File: sample_data.txt
+  Size: 160             Blocks: 8          IO Block: 4096   regular file
+Device: 8,48    Inode: 49254       Links: 2
+Access: (0644/-rw-r--r--)  Uid: ( 1000/ hasnain)   Gid: ( 1000/ hasnain)
+Access: 2026-01-02 13:40:17.058241224 +0000
+Modify: 2026-01-02 13:40:17.058241224 +0000
+Change: 2026-01-02 13:40:17.058241224 +0000
+ Birth: 2026-01-02 13:15:43.595542671 +0000
+  File: sample_hard.txt
+  Size: 160             Blocks: 8          IO Block: 4096   regular file
+Device: 8,48    Inode: 49254       Links: 2
+Access: (0644/-rw-r--r--)  Uid: ( 1000/ hasnain)   Gid: ( 1000/ hasnain)
+Access: 2026-01-02 13:40:17.058241224 +0000
+Modify: 2026-01-02 13:40:17.058241224 +0000
+Change: 2026-01-02 13:40:17.058241224 +0000
+ Birth: 2026-01-02 13:15:43.595542671 +0000
+  File: sample_soft.txt -> sample_data.txt
+  Size: 15              Blocks: 0          IO Block: 4096   symbolic link
+Device: 8,48    Inode: 49305       Links: 1
+Access: (0777/lrwxrwxrwx)  Uid: ( 1000/ hasnain)   Gid: ( 1000/ hasnain)
+Access: 2026-01-02 13:40:17.066237654 +0000
+Modify: 2026-01-02 13:40:17.062239439 +0000
+Change: 2026-01-02 13:40:17.062239439 +0000
+ Birth: 2026-01-02 13:40:17.062239439 +0000
+
+Analysis:
+sample_data.txt and sample_hard.txt share the same inode number
+because a hard link points to the same inode as the original file.
+sample_soft.txt has a different inode number because it is a symbolic
+link that points to the filename, not the inode itself.
+
+==========================================
+6. File Metadata Inspection
+==========================================
+-rw-r--r-- 2 hasnain hasnain 160 Jan  2 13:40 sample_data.txt
+
+Detailed metadata using stat:
+  File: sample_data.txt
+  Size: 160             Blocks: 8          IO Block: 4096   regular file
+Device: 8,48    Inode: 49254       Links: 2
+Access: (0644/-rw-r--r--)  Uid: ( 1000/ hasnain)   Gid: ( 1000/ hasnain)
+Access: 2026-01-02 13:40:17.058241224 +0000
+Modify: 2026-01-02 13:40:17.058241224 +0000
+Change: 2026-01-02 13:40:17.058241224 +0000
+ Birth: 2026-01-02 13:15:43.595542671 +0000
+
+==========================================
+7. Disk Usage Check
+==========================================
+4.0K    /home/hasnain/.cache
+4.0K    /home/hasnain/copied_from_home/copied_from_home/copied_from_home
+8.0K    /home/hasnain/copied_from_home/copied_from_home
+20K     /home/hasnain/copied_from_home
+56K     /home/hasnain
+
+Summary of home directory disk usage:
+56K     /home/hasnain
+
+==========================================
+8. File Size Overview
+==========================================
+total 12K
+drwxr-xr-x 3 hasnain hasnain 4.0K Jan  2 13:39 copied_from_home
+-rw-r--r-- 2 hasnain hasnain  160 Jan  2 13:40 sample_data.txt
+-rw-r--r-- 2 hasnain hasnain  160 Jan  2 13:40 sample_hard.txt
+lrwxrwxrwx 1 hasnain hasnain   15 Jan  2 13:40 sample_soft.txt -> sample_data.txt
+
+Alternative view with just filenames and sizes:
+56K     /home/hasnain
+total 12K
+drwxr-xr-x 3 hasnain hasnain 4.0K Jan  2 13:39 copied_from_home
+-rw-r--r-- 2 hasnain hasnain  160 Jan  2 13:40 sample_data.txt
+-rw-r--r-- 2 hasnain hasnain  160 Jan  2 13:40 sample_hard.txt
+lrwxrwxrwx 1 hasnain hasnain   15 Jan  2 13:40 sample_soft.txt -> sample_data.txt
+
+==========================================
+9. Link Deletion Test
+==========================================
+Before deletion:
+-rw-r--r-- 2 hasnain hasnain 160 Jan  2 13:40 sample_data.txt
+-rw-r--r-- 2 hasnain hasnain 160 Jan  2 13:40 sample_hard.txt
+lrwxrwxrwx 1 hasnain hasnain  15 Jan  2 13:40 sample_soft.txt -> sample_data.txt
+
+Deleting symbolic link...
+
+After deletion:
+-rw-r--r-- 2 hasnain hasnain 160 Jan  2 13:40 sample_data.txt
+-rw-r--r-- 2 hasnain hasnain 160 Jan  2 13:40 sample_hard.txt
+
+Verifying original file is intact:
+This is sample data for understanding Linux links and disk usage.
+It contains multiple lines of text.
+We will use this file to demonstrate hard and soft links.
+
+==========================================
+10. Disk Utility Demonstration
+==========================================
+--- du command demonstrations ---
+
+1. du -h (human-readable sizes):
+4.0K    /home/hasnain/.cache
+4.0K    /home/hasnain/copied_from_home/copied_from_home/copied_from_home
+8.0K    /home/hasnain/copied_from_home/copied_from_home
+20K     /home/hasnain/copied_from_home
+56K     /home/hasnain
+
+2. du -sh (summary of directory):
+56K     /home/hasnain
+
+3. du -ah (all files with human-readable sizes):
+0       /home/hasnain/.cache/motd.legal-displayed
+4.0K    /home/hasnain/.cache
+4.0K    /home/hasnain/copied_from_home/copied_from_home/copied_from_home
+8.0K    /home/hasnain/copied_from_home/copied_from_home
+4.0K    /home/hasnain/copied_from_home/sample_data.txt
+4.0K    /home/hasnain/copied_from_home/sample_hard.txt
+20K     /home/hasnain/copied_from_home
+4.0K    /home/hasnain/sample_data.txt
+0       /home/hasnain/.motd_shown
+4.0K    /home/hasnain/.bash_logout
+
+4. du -h --max-depth=1 (one level deep):
+56K     /home/hasnain
+20K     /home/hasnain/copied_from_home
+4.0K    /home/hasnain/.cache
+
+--- df command demonstrations ---
+
+1. df -h (filesystem usage in human-readable format):
+Filesystem      Size  Used Avail Use% Mounted on
+none            3.9G     0  3.9G   0% /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2
+none            3.9G  4.0K  3.9G   1% /mnt/wsl
+drivers         402G  124G  279G  31% /usr/lib/wsl/drivers
+/dev/sdd       1007G  1.3G  955G   1% /
+none            3.9G   76K  3.9G   1% /mnt/wslg
+none            3.9G     0  3.9G   0% /usr/lib/wsl/lib
+rootfs          3.9G  2.7M  3.9G   1% /init
+none            3.9G  504K  3.9G   1% /run
+none            3.9G     0  3.9G   0% /run/lock
+none            3.9G     0  3.9G   0% /run/shm
+none            3.9G   76K  3.9G   1% /mnt/wslg/versions.txt
+none            3.9G   76K  3.9G   1% /mnt/wslg/doc
+C:\             402G  124G  279G  31% /mnt/c
+D:\             552G  142G  411G  26% /mnt/d
+tmpfs           786M   20K  786M   1% /run/user/1000
+
+2. df -T (display filesystem type):
+Filesystem     Type     1K-blocks      Used  Available Use% Mounted on
+none           overlay    4023908         0    4023908   0% /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2
+none           tmpfs      4023908         4    4023904   1% /mnt/wsl
+drivers        9p       421355516 129832716  291522800  31% /usr/lib/wsl/drivers
+/dev/sdd       ext4    1055762868   1323348 1000736048   1% /
+none           tmpfs      4023908        76    4023832   1% /mnt/wslg
+none           overlay    4023908         0    4023908   0% /usr/lib/wsl/lib
+rootfs         rootfs     4018868      2720    4016148   1% /init
+none           tmpfs      4023908       504    4023404   1% /run
+none           tmpfs      4023908         0    4023908   0% /run/lock
+none           tmpfs      4023908         0    4023908   0% /run/shm
+none           overlay    4023908        76    4023832   1% /mnt/wslg/versions.txt
+none           overlay    4023908        76    4023832   1% /mnt/wslg/doc
+C:\            9p       421355516 129832716  291522800  31% /mnt/c
+D:\            9p       577966076 147905016  430061060  26% /mnt/d
+tmpfs          tmpfs       804780        20     804760   1% /run/user/1000
+
+3. df -i (display inode information):
+Filesystem       Inodes   IUsed    IFree IUse% Mounted on
+none            1005977       5  1005972    1% /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2
+none            1005977       2  1005975    1% /mnt/wsl
+drivers             999 -999001  1000000     - /usr/lib/wsl/drivers
+/dev/sdd       67108864   49324 67059540    1% /
+none            1005977      33  1005944    1% /mnt/wslg
+none            1005977       5  1005972    1% /usr/lib/wsl/lib
+rootfs          1004717      12  1004705    1% /init
+none            1005977     552  1005425    1% /run
+none            1005977       2  1005975    1% /run/lock
+none            1005977       1  1005976    1% /run/shm
+none            1005977      53  1005924    1% /mnt/wslg/versions.txt
+none            1005977      53  1005924    1% /mnt/wslg/doc
+C:\                 999 -999001  1000000     - /mnt/c
+D:\                 999 -999001  1000000     - /mnt/d
+tmpfs            201195      43   201152    1% /run/user/1000
+
+4. df -h . (current directory's filesystem):
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdd       1007G  1.3G  955G   1% /
+
+Copying all Created Directories and Files from home
