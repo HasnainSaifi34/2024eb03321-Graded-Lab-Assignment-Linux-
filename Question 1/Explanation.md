@@ -116,15 +116,21 @@ ls ~
 ```
 or
 ```bash
+touch ~/A.txt ~/B.txt ~/J.txt ~/Z.txt # this will create new files in home dir (optional)
 ls -1 ~ | sort
 ```
 
 ### Explanation:
-I used `ls ~` where `~` is a shortcut for the home directory to list all files and folders alphabetically. The `ls` command automatically sorts output alphabetically by default. This shows all configuration files and directories in my home directory in an organized manner.
+The `ls -1 ~` command lists the contents of the user’s home directory with one entry per line. The output is then piped to `sort`, which arranges the files and directories in alphabetical order.
+
 
 ### Expected Output: NOTE: if the home directory is empty ~ this will output nothing
 ```
-Desktop  Documents  Downloads  Music  Pictures  user_info.txt  Videos
+A.txt
+B.txt
+J.txt
+Z.txt
+
 ```
 
 ### Screenshot: `screenshots/06_home_directory.png`

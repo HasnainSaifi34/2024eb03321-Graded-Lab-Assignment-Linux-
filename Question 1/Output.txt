@@ -1,7 +1,6 @@
 if you run sudo chmod +x commands.sh
 ./commands.sh 
 // this will run all the commands and give the output
-
 ==========================================
 1. User Identity Verification
 ==========================================
@@ -16,11 +15,13 @@ uid=1000(hasnain) gid=1000(hasnain) groups=1000(hasnain),4(adm),24(cdrom),27(sud
 ==========================================
 /mnt/c/Users/hasna/OneDrive/Desktop/Lab Assignment 1/Question 1
 
-total 12
--rwxrwxrwx 1 root root 6679 Jan  2 11:09 Explanation.md
--rwxrwxrwx 1 root root    0 Jan  2 10:15 Output.txt
+total 16
+-rwxrwxrwx 1 root root 6834 Jan  2 11:40 Explanation.md
+-rwxrwxrwx 1 root root 2506 Jan  2 11:26 Output.txt
 drwxrwxrwx 1 root root  512 Jan  2 11:20 Sreenshots
--rwxrwxrwx 1 root root 2279 Jan  2 10:17 commands.sh
+-rwxrwxrwx 1 root root 2351 Jan  2 11:41 commands.sh
+-rwxrwxrwx 1 root root  126 Jan  2 11:38 log.txt
+-rwxrwxrwx 1 root root   32 Jan  2 11:38 user_info.txt
 
 ==========================================
 3. Environment Confirmation File
@@ -37,11 +38,14 @@ Linux user environment verified
 ==========================================
 Opening manual page for mkdir...
 
-
 ==========================================
 6. Home Directory Inspection
-6. Home Directory Inspection
 ==========================================
+A.txt
+B.txt
+J.txt
+Z.txt
+testfile.txt
 
 ==========================================
 7. Log Investigation
@@ -58,15 +62,16 @@ admin logged out at 11:00
 9. Network Connectivity Test
 ==========================================
 PING www.google.com (142.251.220.36) 56(84) bytes of data.
-64 bytes from pnbomb-ba-in-f4.1e100.net (142.251.220.36): icmp_seq=1 ttl=117 time=4.83 ms
-64 bytes from pnbomb-ba-in-f4.1e100.net (142.251.220.36): icmp_seq=3 ttl=117 time=5.61 ms
-64 bytes from pnbomb-ba-in-f4.1e100.net (142.251.220.36): icmp_seq=4 ttl=117 time=7.66 ms
+64 bytes from pnbomb-ba-in-f4.1e100.net (142.251.220.36): icmp_seq=1 ttl=117 time=11.3 ms
+64 bytes from pnbomb-ba-in-f4.1e100.net (142.251.220.36): icmp_seq=2 ttl=117 time=9.44 ms
+64 bytes from pnbomb-ba-in-f4.1e100.net (142.251.220.36): icmp_seq=3 ttl=117 time=8.83 ms
+64 bytes from pnbomb-ba-in-f4.1e100.net (142.251.220.36): icmp_seq=4 ttl=117 time=6.07 ms
 
 --- www.google.com ping statistics ---
-4 packets transmitted, 3 received, 25% packet loss, time 3262ms
-rtt min/avg/max/mdev = 4.830/6.033/7.662/1.194 ms
+4 packets transmitted, 4 received, 0% packet loss, time 3247ms
+rtt min/avg/max/mdev = 6.073/8.903/11.273/1.865 ms
 
 ==========================================
 10. System Health Awareness
 ==========================================
- 11:25:26 up 3 min,  1 user,  load average: 0.01, 0.05, 0.02
+ 11:41:43 up 19 min,  1 user,  load average: 0.00, 0.00, 0.00

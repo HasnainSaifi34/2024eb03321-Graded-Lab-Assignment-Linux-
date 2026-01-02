@@ -46,8 +46,9 @@ echo ""
 echo "=========================================="
 echo "6. Home Directory Inspection"
 echo "=========================================="
-ls ~
-# or alternatively: ls -1 ~ | sort
+touch ~/A.txt ~/B.txt ~/J.txt ~/Z.txt # Create files in home dir (Optional)
+ls -1 ~ | sort
+# or alternatively: 
 echo ""
 
 echo "=========================================="
