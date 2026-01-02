@@ -1,0 +1,253 @@
+NOTE: run the commands.sh file to get the below output on my system i have got the below output
+
+==========================================
+1. System Uptime Verification
+==========================================
+ 14:19:09 up 31 min,  1 user,  load average: 0.00, 0.00, 0.00
+
+up 31 minutes
+
+2026-01-02 13:47:18
+
+==========================================
+2. User Process Listing
+==========================================
+    PID TTY          TIME CMD
+    337 ?        00:00:00 systemd
+    338 ?        00:00:00 (sd-pam)
+    360 pts/1    00:00:00 bash
+    542 pts/0    00:00:00 bash
+   1350 pts/0    00:00:00 ncdu
+   1361 pts/2    00:00:00 bash
+   1374 pts/2    00:00:00 commands.sh
+   1378 pts/2    00:00:00 ps
+
+Alternative detailed view:
+UID          PID    PPID  C STIME TTY          TIME CMD
+hasnain      337       1  0 13:48 ?        00:00:00 /usr/lib/systemd/systemd --user
+hasnain      338     337  0 13:48 ?        00:00:00 (sd-pam)
+hasnain      360     294  0 13:48 pts/1    00:00:00 -bash
+hasnain      542     538  0 13:56 pts/0    00:00:00 -bash
+hasnain     1350     542  0 14:16 pts/0    00:00:00 ncdu -f ncdu_output.txt
+hasnain     1361    1357  0 14:19 pts/2    00:00:00 -bash
+hasnain     1374    1361  0 14:19 pts/2    00:00:00 /bin/bash ./commands.sh
+hasnain     1379    1374  0 14:19 pts/2    00:00:00 ps -u hasnain -f
+
+==========================================
+3. CPU Usage Analysis
+==========================================
+Top CPU-consuming processes for current user:
+    PID    PPID CMD                         %CPU %MEM
+   1361    1357 -bash                        0.1  0.0
+   1350     542 ncdu -f ncdu_output.txt      0.0  0.0
+    542     538 -bash                        0.0  0.0
+    337       1 /usr/lib/systemd/systemd --  0.0  0.1
+    338     337 (sd-pam)                     0.0  0.0
+    360     294 -bash                        0.0  0.0
+   1374    1361 /bin/bash ./commands.sh      0.0  0.0
+   1380    1374 ps -u hasnain -o pid,ppid,c  0.0  0.0
+   1381    1374 head -10                     0.0  0.0
+
+top - 14:19:09 up 31 min,  1 user,  load average: 0.00, 0.00, 0.00
+Tasks:  31 total,   1 running,  30 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.8 sy,  0.0 ni, 99.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   7859.2 total,   7275.8 free,    519.5 used,    218.7 buff/cache
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   7339.7 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    337 hasnain   20   0   20296  10880   8960 S   0.0   0.1   0:00.05 systemd
+    338 hasnain   20   0   21152   3520   1792 S   0.0   0.0   0:00.00 (sd-pam)
+    360 hasnain   20   0    6072   5248   3584 S   0.0   0.1   0:00.00 bash
+    542 hasnain   20   0    6588   5760   3584 S   0.0   0.1   0:00.13 bash
+   1350 hasnain   20   0    4160   2944   2176 S   0.0   0.0   0:00.02 ncdu
+   1361 hasnain   20   0    6072   5248   3584 S   0.0   0.1   0:00.01 bash
+   1374 hasnain   20   0    4752   3328   3072 S   0.0   0.0   0:00.00 command+
+   1382 hasnain   20   0    9284   5120   3072 R   0.0   0.1   0:00.00 top
+   1383 hasnain   20   0    3136   1664   1664 S   0.0   0.0   0:00.00 head
+
+top - 14:19:11 up 31 min,  1 user,  load average: 0.00, 0.00, 0.00
+Tasks:  31 total,   1 running,  30 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+
+==========================================
+4. Background Process Execution
+==========================================
+Starting a sleep command in background...
+Background process started with PID: 1384
+
+Verifying background process is running:
+[1]+  Running                 sleep 300 &
+
+UID          PID    PPID  C STIME TTY          TIME CMD
+hasnain     1384    1374  0 14:19 pts/2    00:00:00 sleep 300
+
+==========================================
+5. Process Priority Management
+==========================================
+Current priority of background process (PID: 1384):
+    PID  NI CMD
+   1384   0 sleep 300
+
+Changing niceness to 10...
+1384 (process ID) old priority 0, new priority 10
+
+Updated priority:
+    PID  NI CMD
+   1384  10 sleep 300
+
+Killing the background process...
+
+==========================================
+6. Memory Usage Monitoring
+==========================================
+               total        used        free      shared  buff/cache   available
+Mem:           7.7Gi       519Mi       7.1Gi       3.5Mi       218Mi       7.2Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+Detailed memory information:
+MemTotal:        8047824 kB
+MemFree:         7449996 kB
+MemAvailable:    7515420 kB
+Buffers:            2832 kB
+Cached:           190824 kB
+SwapCached:            0 kB
+Active:            87184 kB
+Inactive:         193096 kB
+Active(anon):       2688 kB
+Inactive(anon):    87520 kB
+Active(file):      84496 kB
+Inactive(file):   105576 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       2097152 kB
+SwapFree:        2097152 kB
+Dirty:               144 kB
+Writeback:             0 kB
+AnonPages:         86724 kB
+Mapped:            92908 kB
+
+Memory usage by current user processes:
+    PID CMD                         %MEM
+    337 /usr/lib/systemd/systemd --  0.1
+    542 -bash                        0.0
+    360 -bash                        0.0
+   1361 -bash                        0.0
+   1392 ps -u hasnain -o pid,cmd,%m  0.0
+   1374 /bin/bash ./commands.sh      0.0
+    338 (sd-pam)                     0.0
+   1350 ncdu -f ncdu_output.txt      0.0
+   1393 head -10                     0.0
+
+==========================================
+
+==========================================
+8. Shell Identification
+==========================================
+/bin/bash
+
+Current shell process:
+    PID TTY          TIME CMD
+   1374 pts/2    00:00:00 commands.sh
+
+Shell version:
+GNU bash, version 5.2.21(1)-release (x86_64-pc-linux-gnu)
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+==========================================
+9. Output Redirection
+==========================================
+Redirecting system information to system_report.txt...
+System report created successfully!
+
+Displaying contents of system_report.txt:
+=== SYSTEM REPORT ===
+Generated on: Fri Jan  2 14:19:11 UTC 2026
+
+--- System Information ---================
+Linux Hasnain 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+
+--- Uptime ---
+ 14:19:11 up 31 min,  1 user,  load average: 0.00, 0.00, 0.00
+
+--- Memory Usage ---
+               total        used        free      shared  buff/cache   available
+Mem:           7.7Gi       522Mi       7.1Gi       3.5Mi       218Mi       7.2Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+--- Disk Usage ---
+Filesystem      Size  Used Avail Use% Mounted on
+none            3.9G     0  3.9G   0% /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2
+none            3.9G  4.0K  3.9G   1% /mnt/wsl
+drivers         402G  125G  278G  31% /usr/lib/wsl/drivers
+/dev/sdd       1007G  1.6G  955G   1% /
+none            3.9G   76K  3.9G   1% /mnt/wslg
+none            3.9G     0  3.9G   0% /usr/lib/wsl/lib
+rootfs          3.9G  2.7M  3.9G   1% /init
+none            3.9G  512K  3.9G   1% /run
+none            3.9G     0  3.9G   0% /run/lock
+none            3.9G     0  3.9G   0% /run/shm
+none            3.9G   76K  3.9G   1% /mnt/wslg/versions.txt
+none            3.9G   76K  3.9G   1% /mnt/wslg/doc
+C:\             402G  125G  278G  31% /mnt/c
+D:\             552G  142G  411G  26% /mnt/d
+tmpfs           786M   20K  786M   1% /run/user/1000
+
+--- CPU Information ---
+Architecture:                         x86_64
+CPU op-mode(s):                       32-bit, 64-bit
+Address sizes:                        39 bits physical, 48 bits virtual
+Byte Order:                           Little Endian
+CPU(s):                               12
+On-line CPU(s) list:                  0-11
+Vendor ID:                            GenuineIntel
+Model name:                           12th Gen Intel(R) Core(TM) i5-12400F
+CPU family:                           6
+Model:                                151
+Thread(s) per core:                   2
+Core(s) per socket:                   6
+Socket(s):                            1
+Stepping:                             5
+BogoMIPS:                             4991.99
+
+--- Current User Processes ---
+UID          PID    PPID  C STIME TTY          TIME CMD
+hasnain      337       1  0 13:48 ?        00:00:00 /usr/lib/systemd/systemd --user
+hasnain      338     337  0 13:48 ?        00:00:00 (sd-pam)
+hasnain      360     294  0 13:48 pts/1    00:00:00 -bash
+hasnain      542     538  0 13:56 pts/0    00:00:00 -bash
+hasnain     1350     542  0 14:16 pts/0    00:00:00 ncdu -f ncdu_output.txt
+hasnain     1361    1357  0 14:19 pts/2    00:00:00 -bash
+hasnain     1374    1361  0 14:19 pts/2    00:00:00 /bin/bash ./commands.sh
+hasnain     1405    1374  0 14:19 pts/2    00:00:00 ps -u hasnain -f
+
+=== END OF REPORT ===
+==========================================
+Using ncdu to analyze disk usage...
+
+Note: ncdu is an interactive tool. Running in non-interactive mode for demonstration.
+
+Installing ncdu if not present (may require sudo):
+sudo apt-get install ncdu  # For Debian/Ubuntu
+sudo yum install ncdu      # For RHEL/CentOS
+
+Running ncdu on home directory:
+ncdu is installed. Running analysis...
+Output saved to ncdu_output.txt
+
+To view interactively, run: ncdu -f ncdu_output.txt
+
+Alternative: Using du for similar information:
+40K     /home/hasnain
+8.0K    /home/hasnain/.config
+4.0K    /home/hasnain/.config/procps
+4.0K    /home/hasnain/.cache
+
+Common ncdu usage:
+  ncdu ~              # Scan and browse home directory
+  ncdu -x ~           # Don't cross filesystem boundaries
+  ncdu -e ~           # Enable extended information
+  ncdu --exclude .git # Exclude specific directories

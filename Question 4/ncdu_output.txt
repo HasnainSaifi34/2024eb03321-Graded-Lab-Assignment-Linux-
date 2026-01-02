@@ -1,0 +1,13 @@
+[1,2,{"progname":"ncdu","progver":"1.19","timestamp":1767363551},
+[{"name":"/home/hasnain","asize":4096,"dsize":4096,"dev":2096},
+[{"name":".cache","asize":4096,"dsize":4096},
+{"name":"motd.legal-displayed"}],
+{"name":".motd_shown"},
+{"name":".bash_logout","asize":220,"dsize":4096},
+{"name":".lesshst","asize":20,"dsize":4096},
+{"name":".profile","asize":807,"dsize":4096},
+{"name":".sudo_as_admin_successful"},
+{"name":".bash_history","asize":4581,"dsize":8192},
+[{"name":".config","asize":4096,"dsize":4096},
+[{"name":"procps","asize":4096,"dsize":4096}]],
+{"name":".bashrc","asize":3771,"dsize":4096}]]

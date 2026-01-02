@@ -1,0 +1,61 @@
+=== SYSTEM REPORT ===
+Generated on: Fri Jan  2 14:19:11 UTC 2026
+
+--- System Information ---
+Linux Hasnain 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+
+--- Uptime ---
+ 14:19:11 up 31 min,  1 user,  load average: 0.00, 0.00, 0.00
+
+--- Memory Usage ---
+               total        used        free      shared  buff/cache   available
+Mem:           7.7Gi       522Mi       7.1Gi       3.5Mi       218Mi       7.2Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+--- Disk Usage ---
+Filesystem      Size  Used Avail Use% Mounted on
+none            3.9G     0  3.9G   0% /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2
+none            3.9G  4.0K  3.9G   1% /mnt/wsl
+drivers         402G  125G  278G  31% /usr/lib/wsl/drivers
+/dev/sdd       1007G  1.6G  955G   1% /
+none            3.9G   76K  3.9G   1% /mnt/wslg
+none            3.9G     0  3.9G   0% /usr/lib/wsl/lib
+rootfs          3.9G  2.7M  3.9G   1% /init
+none            3.9G  512K  3.9G   1% /run
+none            3.9G     0  3.9G   0% /run/lock
+none            3.9G     0  3.9G   0% /run/shm
+none            3.9G   76K  3.9G   1% /mnt/wslg/versions.txt
+none            3.9G   76K  3.9G   1% /mnt/wslg/doc
+C:\             402G  125G  278G  31% /mnt/c
+D:\             552G  142G  411G  26% /mnt/d
+tmpfs           786M   20K  786M   1% /run/user/1000
+
+--- CPU Information ---
+Architecture:                         x86_64
+CPU op-mode(s):                       32-bit, 64-bit
+Address sizes:                        39 bits physical, 48 bits virtual
+Byte Order:                           Little Endian
+CPU(s):                               12
+On-line CPU(s) list:                  0-11
+Vendor ID:                            GenuineIntel
+Model name:                           12th Gen Intel(R) Core(TM) i5-12400F
+CPU family:                           6
+Model:                                151
+Thread(s) per core:                   2
+Core(s) per socket:                   6
+Socket(s):                            1
+Stepping:                             5
+BogoMIPS:                             4991.99
+
+--- Current User Processes ---
+UID          PID    PPID  C STIME TTY          TIME CMD
+hasnain      337       1  0 13:48 ?        00:00:00 /usr/lib/systemd/systemd --user
+hasnain      338     337  0 13:48 ?        00:00:00 (sd-pam)
+hasnain      360     294  0 13:48 pts/1    00:00:00 -bash
+hasnain      542     538  0 13:56 pts/0    00:00:00 -bash
+hasnain     1350     542  0 14:16 pts/0    00:00:00 ncdu -f ncdu_output.txt
+hasnain     1361    1357  0 14:19 pts/2    00:00:00 -bash
+hasnain     1374    1361  0 14:19 pts/2    00:00:00 /bin/bash ./commands.sh
+hasnain     1405    1374  0 14:19 pts/2    00:00:00 ps -u hasnain -f
+
+=== END OF REPORT ===
