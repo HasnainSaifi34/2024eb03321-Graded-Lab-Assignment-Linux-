@@ -1,0 +1,5 @@
+This is a sample log file
+admin logged in at 10:00
+User performed some action
+admin logged out at 11:00
+Regular user activity
